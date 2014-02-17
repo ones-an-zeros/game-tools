@@ -1,0 +1,12 @@
+body{
+    margin:0px;
+    padding:0px;
+    background:black;
+}
+#stage{
+    width:800px;
+    height:600px;
+    margin-left:auto;
+    margin-right:auto;
+    background:white;
+}

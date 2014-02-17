@@ -1,0 +1,44 @@
+function windowManager( body ){
+    this.body = document.getElementsByTagName('body')[0];
+    this.height = 0;
+    this.width = 0;
+    this.windowSizes = new Array();
+    this.getUserAgent();
+    this.getSize();
+    this.init();
+    this.makeCanvas();
+}
+windowManager.prototypoe.init = function(){
+    this.windowSizes[0] = new Object();
+    this.windowSizes[0].width = 1024;
+    this.windowSizes[0].height = 768;
+    
+}
+windowManager.prototype.makeCanvas = function(){
+    if(this.width>1024){ this.width = 1024; }
+    if(this.height>768){ this.height = 768; }
+
+    var canvas = managedObject.create('DIV',{'id':'stage'},'width:'+this.width+';height:'+this.height+'px;',this.body);
+}
+windowManager.prototype.getUserAgent = function(){
+    //alert(navigator.userAgent);
+}
+windowManager.prototype.getSize = function(){
+    var winW = 630, winH = 460;
+    if (document.body && document.body.offsetWidth) {
+	winW= document.body.offsetWidth;
+	winH = document.body.offsetHeight;
+    }
+    if (document.compatMode=='CSS1Compat' &&
+	document.documentElement &&
+	document.documentElement.offsetWidth ) {
+	winW = document.documentElement.offsetWidth;
+	winH = document.documentElement.offsetHeight;
+    }
+    if (window.innerWidth && window.innerHeight) {
+	winW = window.innerWidth;
+	winH = window.innerHeight;
+    }
+    this.height = winH;
+    this.width = winW;
+}
